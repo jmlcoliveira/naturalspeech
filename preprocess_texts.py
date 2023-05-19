@@ -28,4 +28,4 @@ if __name__ == "__main__":
 
                 filepaths_and_text[i][args.text_index] = cleaned_text
                 print(filepaths_and_text[i])
-                f.writelines(["|".join(x) + "\n" for x in filepaths_and_text[i]])
+                f.writelines(filepaths_and_text[i][0] + "|" + filepaths_and_text[i][1] + "\n")
