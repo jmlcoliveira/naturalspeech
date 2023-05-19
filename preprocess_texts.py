@@ -28,7 +28,7 @@ if __name__ == "__main__":
                 cleaned_text = text._clean_text(original_text, args.text_cleaners)
 
                 filepaths_and_text[i][args.text_index] = cleaned_text
-                print(f"Progress: {str(i)}/{str(size)}\n {filepaths_and_text[i]}", end="\r")
+                print(f"Progress: {str(i)}/{str(size)} : {filepaths_and_text[i]}", end="\r")
                 #print(filepaths_and_text[i])
                 f.writelines(filepaths_and_text[i][0] + "|" + filepaths_and_text[i][1] + "\n")
         print(f"\0\nDone for file {filelist}!")
