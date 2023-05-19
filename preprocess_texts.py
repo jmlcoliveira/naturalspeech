@@ -27,5 +27,5 @@ if __name__ == "__main__":
                 cleaned_text = text._clean_text(original_text, args.text_cleaners)
 
                 filepaths_and_text[i][args.text_index] = cleaned_text
-                print(filepaths_and_text)
-                f.writelines(["|".join(x) + "\n" for x in filepaths_and_text])
+                print(filepaths_and_text[i])
+                f.writelines(["|".join(x) + "\n" for x in filepaths_and_text[i]])
