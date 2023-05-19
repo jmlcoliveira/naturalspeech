@@ -22,13 +22,16 @@ if __name__ == "__main__":
         new_filelist = filelist + "." + args.out_extension
         filepaths_and_text = load_filepaths_and_text(filelist)
         size = len(filepaths_and_text)
-        with open(new_filelist, "w", encoding="utf-8") as f:
-            for i in range(size):
-                original_text = filepaths_and_text[i][args.text_index]
-                cleaned_text = text._clean_text(original_text, args.text_cleaners)
+        with open(new_filelist, "a", encoding="utf-8") as f:
+            for i in range(1793, size):
+                try:
+                    original_text = filepaths_and_text[i][args.text_index]
+                    cleaned_text = text._clean_text(original_text, args.text_cleaners)
 
-                filepaths_and_text[i][args.text_index] = cleaned_text
-                print(f"Progress: {str(i)}/{str(size)} : {filepaths_and_text[i]}", end="\r")
-                #print(filepaths_and_text[i])
-                f.writelines(filepaths_and_text[i][0] + "|" + filepaths_and_text[i][1] + "\n")
+                    filepaths_and_text[i][args.text_index] = cleaned_text
+                    print(f"Progress: {str(i)}/{str(size)} : {filepaths_and_text[i]}\t\t\t\t", end="\r")
+                    #print(filepaths_and_text[i])
+                    f.writelines(filepaths_and_text[i][0] + "|" + filepaths_and_text[i][args.text_index] + "\n")
+                except Exception as e:
+                    print(e)
         print(f"\0\nDone for file {filelist}!")
